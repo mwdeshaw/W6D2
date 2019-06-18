@@ -10,33 +10,38 @@ class View {
 
   bindEvents() {
     $('li').click(c => {
-      const $square = $(c.target);
+      const $square = $(c.currentTarget);
       this.makeMove($square);
     });
   }
-  
+
   makeMove($square) {
-    
    const pos = $square.data("pos");
    const currentPlayer = this.game.currentPlayer;
     try {
       this.game.playMove(pos);
-    } catch (e) {
-      alert("This " + e.msg.toLowerCase());
+    } catch (error) {
+      alert("This " + error.msg.toLowerCase());
       return;
     }
 
-
     $square.addClass(currentPlayer);
-    // if (this.game.isOver()) {
-    //   this.$el.off('click');
-    //   this.$el.addClass("game-over");
-      
-    // } else {
-    //   this.bindEvents();
-    //   this.game.swapTurn();
-    // }
-    
+    if (this.game.isOver()) {
+      this.$el.off("click");
+      this.$el.addClass("game-over");
+
+      const champ = this.game.winner();
+      const $caption = $("<figcaption>");
+
+      if (champ) {
+        this.$el.addClass(`champ-${champ}`);
+        $caption.html(`YOU WIN, ${champ}!`);
+      } else {
+        $caption.html("It's a draw!");
+      }
+
+      this.$el.append($caption);
+    }
   }
 
   setupBoard(){
