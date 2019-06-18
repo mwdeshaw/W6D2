@@ -39,8 +39,10 @@ class View {
       } else {
         $caption.html("It's a draw!");
       }
-
       this.$el.append($caption);
+      const $restart = $("<button>Play Again</button>");
+      $restart.on('click', () => window.location.reload());
+      this.$el.append($restart);
     }
   }
 
