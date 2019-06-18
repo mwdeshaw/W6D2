@@ -1,0 +1,71 @@
+html, body, figure, figcaption, ul, li, h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-align: inherit;
+}
+
+li {
+  width: 90px;
+  height: 90px;
+  border: 5px solid black;
+  background: gray;
+  cursor: pointer;
+}
+/* 
+li {
+  height: 90px;
+  width: 90px;
+  list-style: none;
+  border: 5px solid black;
+  float: left;
+  display: list-item;
+} */
+
+h1 {
+  display: block;
+  margin: 30px;
+  font-weight: 700;
+  font-size: 65px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  width: 300px;
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.green{
+  background-color: green;
+}
+
+.x,
+.o {
+  background: white;
+  cursor: default;
+}
+
+.x:after,
+.o:after {
+  display: block;
+  width: 100%;
+  font-size: 60px;
+  line-height: 80px;
+}
+
+.x:after {
+  content: "x";
+}
+
+.o:after {
+  content: "o";
+}
