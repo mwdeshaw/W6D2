@@ -49,7 +49,6 @@ class View {
   setupBoard(){
     const grid = this.game.board.grid;
     const $ul = $('<ul>');
-    this.$el.append($ul);
 
     for (let i = 0; i < grid.length; i++) {
       for(let j = 0; j < grid.length; j++) {
